@@ -57,5 +57,46 @@ export default async function createGroup(
       message: "Ocorreu um erro ao adicionar os participantes ao grupo. Por favor tente novamente.",
     };
    }
-   
+
+   const drawnParticipants = drawGroup(createdParticipants)
+    
+   const { error: errorDraw } = await supabase
+   .from("participants")
+   .upsert(drawnParticipants);
+
+   if (errorDraw) {
+    return {
+      success: false,
+      message: "Ocorreu um erro ao sortear os participantes do grupo. Por favor tente novamente.",
+    };
+   }
+ // redirect(`app/grupos/${newGroup.id}`)
+}
+
+
+type Participant = {
+  id: string;
+  group_id: string;
+  name: string;
+  email: string;
+  assigned_to: string | null;
+  created_at: string;
+}
+function drawGroup (participants: Participant[]) {
+  const selectedParticipants: string[] = [];
+
+  return participants.map((participant) => {
+    const availableParticipants = participants.filter((p) =>
+      p.id !== participant.id && !selectedParticipants.includes(p.id)
+    )
+    const assignedParticipant = availableParticipants[
+      Math.floor(Math.random() * availableParticipants.length)
+    ]
+     selectedParticipants.push(assignedParticipant.id);
+
+     return {
+      ...participant,
+      assigned_to: assignedParticipant.id,
+     }
+  })
 }
