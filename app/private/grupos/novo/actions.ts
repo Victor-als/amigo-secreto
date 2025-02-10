@@ -2,7 +2,7 @@
 
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { Resend } from "resend";
+//import { Resend } from "resend";
 
 export type CreateGroupState = {
   success: null | boolean,
@@ -73,17 +73,17 @@ export default async function createGroup(
     };
    }
 
-   const { error: errorResend } = await sendEmailToParticipants(
-    drawnParticipants,
-    groupName as string,
-   );
+  //  const { error: errorResend } = await sendEmailToParticipants(
+  //   drawnParticipants,
+  //   groupName as string,
+  //  );
 
-   if (errorResend) {
-    return {
-      success: false,
-      message: errorResend,
-    };
-   }
+  //  if (errorResend) {
+  //   return {
+  //     success: false,
+  //     message: errorResend,
+  //   };
+  //  }
   redirect(`/private/grupos/${newGroup.id}`)
 }
 
@@ -115,28 +115,28 @@ function drawGroup (participants: Participant[]) {
   })
 }
 
-async function sendEmailToParticipants (participants: Participant[], groupName: string) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+// async function sendEmailToParticipants (participants: Participant[], groupName: string) {
+//   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  try {
-    await Promise.all(
-     participants.map(participant => {
-       resend.emails.send({
-         from: "",
-         to: participant.email,
-         subject: `Sorteio de amigo secreto - ${groupName}`,
-         html: `<p>Voce está participando do amigo secreto do grupo "${groupName}". <br /> <br />
-          O seu amigo secreto é 
-          <strong>${
-            participants.find(p => p.id === participant.assigned_to)?.name
-          }
-         </strong>
-         `
-       })
-     })
-   )
-   return { error: null};
-  } catch  {
-    return { error: "Ocorreu um erro ao enviar os emails"}
-  }
-}
+//   try {
+//     await Promise.all(
+//      participants.map(participant => {
+//        resend.emails.send({
+//          from: "",
+//          to: participant.email,
+//          subject: `Sorteio de amigo secreto - ${groupName}`,
+//          html: `<p>Voce está participando do amigo secreto do grupo "${groupName}". <br /> <br />
+//           O seu amigo secreto é 
+//           <strong>${
+//             participants.find(p => p.id === participant.assigned_to)?.name
+//           }
+//          </strong>
+//          `
+//        })
+//      })
+//    )
+//    return { error: null};
+//   } catch  {
+//     return { error: "Ocorreu um erro ao enviar os emails"}
+//   }
+// }
