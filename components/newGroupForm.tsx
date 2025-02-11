@@ -17,8 +17,7 @@ interface Participant {
 export default function NewGroupForm({ loggedUser }: {loggedUser: {email: string; id: string}}) {
   const { toast } = useToast()
   const [participants, setParticipants] = useState<Participant[]>([
-    { name: "", email: loggedUser.email },
-    { name: "", email: "joao@gmail.com" },
+    { name: "", email: loggedUser.email }
   ])
   const [groupName, setGroupName] = useState('')
   const [state, formAction, pending] = useActionState<CreateGroupState, FormData>(createGroup, {
