@@ -11,10 +11,10 @@ export default function Header() {
             href="/"
             className="text-2xl font-bold flex items-center gap-2"
           >
-            <Gift className="h-6 w-6 text-red-400"/>
-            <span>
+            <Gift className="h-6 w-6 text-blue-400"/>
+            <span className=" text-blue-400">
               Amigo
-              <span className="font-thin">Secreto</span>
+              <span className="font-thin text-white">Secreto</span>
             </span>
           </Link>
           <nav className="flex items-cennter space-x-4">
