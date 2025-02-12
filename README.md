@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amigo Secreto
 
-## Getting Started
+Esse projeto é um soprteador de amigo secreto, ele faz o sorteio das pessoas do grupo criado e manda o resultado do sorteio por email.
 
-First, run the development server:
+# Imagem da tela.
+![Image](https://github.com/user-attachments/assets/63c3128d-c018-489f-b251-e14d4c19f307)
+![Image](https://github.com/user-attachments/assets/ae56090b-a2ee-42d6-bdc7-ed621f9c0b65)
+![Image](https://github.com/user-attachments/assets/c6400a03-bb47-4eb0-b724-1149f462cab2)
+![Image](https://github.com/user-attachments/assets/3f98a075-03fe-4ba6-a77c-afaa3c517fbb)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- ## Tenologias usadas no projeto.
+
+- Next.js
+- tailwindCSS
+- supabase - banco de dados 
+- TypeScript
+
+
+## Para rodar o projeto localmente
+
+1. Clone o repositório:
+
+```sh
+$ git clone https://github.com/Victor-als/amigo-secreto
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Instale as dependências:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm install
+```
+4. Rodar localmente:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+npm run dev
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ 
